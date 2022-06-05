@@ -11,11 +11,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/HubImpl" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/feed" />
-            <option value="$PROJECT_DIR$/friends" />
-            <option value="$PROJECT_DIR$/hub" />
-            <option value="$PROJECT_DIR$/profile" />
+            <option value="$PROJECT_DIR$/feed/FeedApi" />
+            <option value="$PROJECT_DIR$/feed/FeedImpl" />
+            <option value="$PROJECT_DIR$/friends/FriendsApi" />
+            <option value="$PROJECT_DIR$/friends/FriendsImpl" />
+            <option value="$PROJECT_DIR$/profile/ProfileApi" />
+            <option value="$PROJECT_DIR$/profile/ProfileImpl" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
