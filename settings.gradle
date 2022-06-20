@@ -14,18 +14,23 @@ dependencyResolutionManagement {
 }
 rootProject.name = "BottomBarApp"
 
-def modules = [
-        ":app"     : "app",
-        ":feed-api": "feed/FeedApi",
-        ":feed-impl": "feed/FeedImpl",
-        ":friends-api": "friends/FriendsApi",
-        ":friends-impl": "friends/FriendsImpl",
-        ":profile-api": "profile/ProfileApi",
-        ":profile-impl": "profile/ProfileImpl"
-]
-include ':HubImpl'
+include ':core:navigation'
 
-modules.forEach { name, path ->
+def featureModules = [
+        ":app"          : "app",
+        ":feed-api"     : "feed/FeedApi",
+        ":feed-impl"    : "feed/FeedImpl",
+        ":friends-api"  : "friends/FriendsApi",
+        ":friends-impl" : "friends/FriendsImpl",
+        ":profile-api"  : "profile/ProfileApi",
+        ":profile-impl" : "profile/ProfileImpl",
+        ":hub-api"      : "hub/HubApi",
+        ":hub-impl"     : "hub/HubImpl",
+        ":greeting-api" : "greeting/GreetingApi",
+        ":greeting-impl": "greeting/GreetingImpl"
+]
+
+featureModules.forEach { name, path ->
     include(name)
     project(name).projectDir = file(path)
 }
