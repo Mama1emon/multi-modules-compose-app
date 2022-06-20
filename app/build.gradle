@@ -3,7 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
-
 }
 
 android {
@@ -56,4 +55,6 @@ dependencies {
     implementation project(":greeting-api")
     implementation project(":greeting-impl")
     implementation project(":core:navigation")
+    implementation project(":feed-api")
+    implementation project(":feed-impl")
 }

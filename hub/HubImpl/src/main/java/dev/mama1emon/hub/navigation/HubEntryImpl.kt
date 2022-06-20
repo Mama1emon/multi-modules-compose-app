@@ -13,8 +13,8 @@ class HubEntryImpl @Inject constructor() : HubEntry() {
         navController: NavHostController,
         destinations: Destinations
     ) {
-        navigation(startDestination = entryPoint, route = "@$entryPoint") {
-            composable(entryPoint) {
+        navigation(startDestination = this@HubEntryImpl.entryPoint, route = "@${this@HubEntryImpl.entryPoint}") {
+            composable(this@HubEntryImpl.entryPoint) {
 
             }
         }

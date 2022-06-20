@@ -6,50 +6,39 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import dev.mama1emon.feed.navigation.FeedEntry
-import dev.mama1emon.navigation.LocalDestinationsProvider
-import dev.mama1emon.navigation.find
+import dev.mama1emon.greeting.impl.navigation.GreetingScreens
 
 @Composable
-fun GreetingScreen(navController: NavHostController) {
-    var inputName by remember { mutableStateOf("") }
-    val destinations = LocalDestinationsProvider.current
-
+fun SplashScreen(navController: NavHostController) {
     Box(
         Modifier
-            .background(Color.White)
+            .background(Color.LightGray)
             .fillMaxSize()
     ) {
         Text(
             modifier = Modifier.align(Alignment.Center),
-            text = "Добро пожаловать",
+            text = "Splash\nИнициализация ресурсов",
             textAlign = TextAlign.Center,
             color = Color.Black
-        )
-        TextField(
-            modifier = Modifier.align(Alignment.TopCenter),
-            value = inputName,
-            onValueChange = { inputName = it }
         )
         Button(
             modifier = Modifier
                 .padding(bottom = 16.dp)
                 .align(Alignment.BottomCenter),
             onClick = {
-                navController.navigate(
-                    destinations.find<FeedEntry>().route(inputName)
-                )
+                navController.navigate(GreetingScreens.GREETING.route) {
+                    popUpTo(GreetingScreens.SPLASH.route) { inclusive = true }
+                }
             }
         ) {
-            Text(text = "Перейти на Ленту")
+            Text(text = "Загрузка окончена")
         }
     }
 }
