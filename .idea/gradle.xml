@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/ds" />
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/feed/FeedApi" />
             <option value="$PROJECT_DIR$/feed/FeedImpl" />

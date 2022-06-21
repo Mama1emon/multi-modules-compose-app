@@ -23,33 +23,3 @@ abstract class FeatureEntry {
         destinations: Destinations
     )
 }
-
-////*** Упрощенная схема навигации фичи *//*
-//abstract class SimpleFeatureEntry(startDestination: String) : FeatureEntry() {
-//
-//    private val _entryPoint by lazy { entryPoint }
-//    private val _startDestination: String = "${_entryPoint}_$startDestination"
-//
-//    @Composable
-//    abstract fun StartDestinationContent()
-//
-//    abstract fun NavGraphBuilder.localDestinationList(
-//        navController: NavHostController,
-//        destinations: Destinations
-//    )
-//
-//    override fun NavGraphBuilder.subgraph(
-//        navController: NavHostController,
-//        destinations: Destinations
-//    ) {
-//        navigation(
-//            startDestination = _startDestination,
-//            route = _entryPoint,
-//            arguments = arguments,
-//            deepLinks = deepLinks
-//        ) {
-//            composable(route = _startDestination) { StartDestinationContent() }
-//            localDestinationList(navController, destinations)
-//        }
-//    }
-//}*/

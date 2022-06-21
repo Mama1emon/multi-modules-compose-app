@@ -12,14 +12,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import dev.mama1emon.feed.navigation.Detail
+import dev.mama1emon.feed.navigation.NEWS_ID_KEY
 
 @Composable
-fun FeedScreen(
-    username: String,
-    navigateToDetail: (String) -> Unit
-) {
+fun FeedScreen(navController: NavHostController) {
+//    Scaffold(
+//        bottomBar = { BottomNavigationBar(navController) }
+//    ) {
     Box(
         Modifier
+//                .padding(it)
             .background(Color.Green)
             .fillMaxSize()
     ) {
@@ -33,9 +37,20 @@ fun FeedScreen(
             modifier = Modifier
                 .padding(bottom = 16.dp)
                 .align(Alignment.BottomCenter),
-            onClick = { navigateToDetail("1") }
+            onClick = {
+                /**
+                 * ПРИМЕР НАВИГАЦИИ МЕЖДУ ЭКРАНАМИ ОДНОГО МОДУЛЯ
+                 * С ПЕРЕДАЧЕЙ АРГУМЕНТОВ
+                 */
+                navController.navigate(
+                    Detail.Route()
+                        .addValue(NEWS_ID_KEY, "1")
+                        .destination()
+                )
+            }
         ) {
-            Text(text = "Вернуться на экран приветствия, $username?")
+            Text(text = "ОТКРЫТЬ НОВОСТЬ")
         }
     }
+//    }
 }

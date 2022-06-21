@@ -1,36 +1,25 @@
-//package dev.mama1emon.hub.ui
+//package dev.mama1emon.hub.ui.compose
 //
-//import androidx.compose.foundation.layout.padding
 //import androidx.compose.material.*
 //import androidx.compose.material.icons.Icons
 //import androidx.compose.material.icons.filled.Favorite
 //import androidx.compose.runtime.Composable
 //import androidx.compose.runtime.getValue
-//import androidx.compose.ui.Modifier
 //import androidx.compose.ui.res.stringResource
-//import androidx.navigation.NavDestination.Companion.hierarchy
-//import androidx.navigation.NavGraph.Companion.findStartDestination
-//import androidx.navigation.compose.NavHost
+//import androidx.navigation.NavHostController
 //import androidx.navigation.compose.currentBackStackEntryAsState
-//import androidx.navigation.compose.rememberNavController
-//import com.mama1emon.feed.ui.navigation.feedGraph
-//import com.mama1emon.friends.ui.navigation.friendsGraph
-//import com.mama1emon.profile.ui.navigation.profileGraph
+//import dev.mama1emon.navigation.LocalDestinationsProvider
+//import dev.mama1emon.ui.BottomBarTabs
 //
 //@Composable
-//fun HubScreen() {
-//    val items = listOf(
-//        BottomBarTabs.Feed,
-//        BottomBarTabs.FriendsList,
-//        BottomBarTabs.Profile
-//    )
-//
-//    val navController = rememberNavController()
+//fun HubScreen(navController: NavHostController) {
+//    val destinations = LocalDestinationsProvider.current
+//    val items = BottomBarTabs(destinations).getTabs()
 //    Scaffold(
 //        bottomBar = {
 //            BottomNavigation {
 //                val navBackStackEntry by navController.currentBackStackEntryAsState()
-//                val currentDestination = navBackStackEntry?.destination
+//                val currentRoute = navBackStackEntry?.destination?.route
 //                items.forEach { screen ->
 //                    BottomNavigationItem(
 //                        icon = {
@@ -40,10 +29,10 @@
 //                            )
 //                        },
 //                        label = { Text(stringResource(screen.resourceId)) },
-//                        selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+//                        selected = currentRoute == screen.route,
 //                        onClick = {
 //                            navController.navigate(screen.route) {
-//                                popUpTo(navController.graph.findStartDestination().id) {
+//                                popUpTo(items.first().route) {
 //                                    saveState = true
 //                                }
 //                                launchSingleTop = true
@@ -54,15 +43,5 @@
 //                }
 //            }
 //        }
-//    ) { innerPadding ->
-//        NavHost(
-//            navController = navController,
-//            startDestination = BottomBarTabs.Feed.route,
-//            modifier = Modifier.padding(innerPadding)
-//        ) {
-//            feedGraph(navController)
-//            profileGraph(navController)
-//            friendsGraph(navController)
-//        }
-//    }
+//    ) {}
 //}

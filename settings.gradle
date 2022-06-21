@@ -34,3 +34,4 @@ featureModules.forEach { name, path ->
     include(name)
     project(name).projectDir = file(path)
 }
+include ':core:ds'

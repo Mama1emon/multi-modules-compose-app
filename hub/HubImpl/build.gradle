@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -28,10 +30,17 @@ android {
 }
 
 dependencies {
-    def nav_version = "2.4.2"
     implementation "androidx.navigation:navigation-compose:$nav_version"
     implementation "javax.inject:javax.inject:1"
 
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+
+    implementation "com.google.dagger:hilt-android:2.38.1"
+    kapt "com.google.dagger:hilt-compiler:2.38.1"
+
     implementation project(":hub-api")
+    implementation project(":feed-api")
+    implementation project(":profile-api")
     implementation project(":core:navigation")
 }

@@ -19,7 +19,7 @@ class GreetingEntryImpl @Inject constructor() : GreetingEntry() {
             startDestination = Greeting.value(),
             route = entryPoint.value()
         ) {
-            composable(route = Greeting.value()) { GreetingScreen(navController) }
+            composable(route = Greeting.value()) { GreetingScreen(navController, destinations) }
         }
     }
 }

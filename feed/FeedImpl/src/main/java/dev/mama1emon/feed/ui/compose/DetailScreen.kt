@@ -8,14 +8,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavHostController
 
 @Composable
-fun DetailScreen(newsId: String) {
+fun DetailScreen(navController: NavHostController, newsId: String) {
+//    Scaffold(
+//        bottomBar = { BottomNavigationBar(navController) }
+//    ) {
     Box(
         modifier = Modifier
+//            .padding(it)
             .background(Color.Blue)
             .fillMaxSize()
     ) {
         Text(text = "Detail #$newsId", modifier = Modifier.align(Alignment.Center))
     }
+//    }
 }
