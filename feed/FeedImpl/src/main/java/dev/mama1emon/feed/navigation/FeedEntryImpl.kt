@@ -19,11 +19,11 @@ class FeedEntryImpl @Inject constructor() : FeedEntry() {
         destinations: Destinations
     ) {
         navigation(
-            startDestination = Feed.entryPoint(),
-            route = entryPointWithArgs,
-            arguments = arguments
+            startDestination = Feed.value(),
+            route = entryPoint.value(),
+            arguments = entryPoint.arguments
         ) {
-            composable(Feed.entryPoint()) { backStackEntry ->
+            composable(Feed.value()) { backStackEntry ->
                 FeedScreen(
                     username = requireNotNull(backStackEntry.arguments?.getString(USERNAME_KEY)),
                     navigateToDetail = {
@@ -40,7 +40,7 @@ class FeedEntryImpl @Inject constructor() : FeedEntry() {
                 )
             }
             composable(
-                route = Detail.entryPoint(),
+                route = Detail.value(),
                 arguments = Detail.arguments
             ) {
                 DetailScreen(requireNotNull(it.arguments?.getString(NEWS_ID)))

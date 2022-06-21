@@ -45,7 +45,7 @@ fun Navigation() {
     Box(Modifier.fillMaxSize()) {
         NavHost(
             navController = navController,
-            startDestination = destinations.find<GreetingEntry>().route()
+            startDestination = destinations.find<GreetingEntry>().entryPoint.value()
         ) {
             /**
              * ВСЕ ТОЧКИ ВХОДА, ДОБАВЛЕННЫЕ В DI ГРАФ, БУДУТ АВТОМАТИЧЕСКИ ДОБАВЛЕНЫ

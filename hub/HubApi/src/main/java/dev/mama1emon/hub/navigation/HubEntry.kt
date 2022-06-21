@@ -1,14 +1,8 @@
 package dev.mama1emon.hub.navigation
 
+import dev.mama1emon.navigation.EntryPoint
 import dev.mama1emon.navigation.FeatureEntry
 
-abstract class HubEntry : FeatureEntry() {
-
-    override val entryPoint = START_DESTINATION
-
-    fun destination() = entryPoint
-
-    private companion object {
-        const val START_DESTINATION = "greeting"
-    }
-}
+abstract class HubEntry(
+    override val entryPoint: EntryPoint = EntryPoint("hub")
+) : FeatureEntry()

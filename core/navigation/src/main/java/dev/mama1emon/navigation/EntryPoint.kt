@@ -8,7 +8,7 @@ open class EntryPoint(
 //    private val deepLinks: List<NavDeepLink> = listOf()
 ) {
 
-    fun entryPoint() = if (arguments.isNotEmpty()) {
+    fun value() = if (arguments.isNotEmpty()) {
         val route = "$entryPoint?"
         val args = arguments.joinToString(separator = "&") { getEntryPointArg(it.name) }
         route + args

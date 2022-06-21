@@ -1,6 +1,5 @@
 package dev.mama1emon.navigation
 
-import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavDeepLink
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -8,11 +7,7 @@ import androidx.navigation.NavHostController
 /** Навигация фичи */
 abstract class FeatureEntry {
 
-    /** Точка входа в фичу - route графа */
-    protected abstract val entryPoint: String
-
-    /** Аргументы для открытия фичи */
-    protected abstract val arguments: List<NamedNavArgument>
+    abstract val entryPoint: EntryPoint
 
     /** Диплинки */
     protected val deepLinks: List<NavDeepLink> = listOf()

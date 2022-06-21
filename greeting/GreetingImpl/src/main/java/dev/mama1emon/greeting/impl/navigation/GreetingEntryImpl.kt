@@ -6,7 +6,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import dev.mama1emon.greeting.api.navigation.GreetingEntry
 import dev.mama1emon.greeting.impl.compose.GreetingScreen
-import dev.mama1emon.greeting.impl.navigation.GreetingScreens.Greeting
 import dev.mama1emon.navigation.Destinations
 import javax.inject.Inject
 
@@ -17,10 +16,10 @@ class GreetingEntryImpl @Inject constructor() : GreetingEntry() {
         destinations: Destinations
     ) {
         navigation(
-            startDestination = Greeting.entryPoint(),
-            route = entryPoint
+            startDestination = Greeting.value(),
+            route = entryPoint.value()
         ) {
-            composable(route = Greeting.entryPoint()) { GreetingScreen(navController) }
+            composable(route = Greeting.value()) { GreetingScreen(navController) }
         }
     }
 }
