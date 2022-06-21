@@ -1,12 +1,15 @@
 package dev.mama1emon.feed.navigation
 
-import androidx.navigation.*
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
+import androidx.navigation.navArgument
 import dev.mama1emon.feed.ui.compose.DetailScreen
 import dev.mama1emon.feed.ui.compose.FeedScreen
 import dev.mama1emon.navigation.Destinations
-import dev.mama1emon.navigation.Screen
+import dev.mama1emon.navigation.EntryPoint
 import javax.inject.Inject
 
 class FeedEntryImpl @Inject constructor() : FeedEntry() {
@@ -16,44 +19,48 @@ class FeedEntryImpl @Inject constructor() : FeedEntry() {
         destinations: Destinations
     ) {
         navigation(
-            startDestination = FeedScreens.FEED.route,
+            startDestination = Feed.entryPoint(),
             route = entryPointWithArgs,
+            arguments = arguments
         ) {
-            composable(FeedScreens.FEED.route, arguments) { backStackEntry ->
+            composable(Feed.entryPoint()) { backStackEntry ->
                 FeedScreen(
                     username = requireNotNull(backStackEntry.arguments?.getString(USERNAME_KEY)),
                     navigateToDetail = {
-                        navController.navigate("detail?$NEWS_ID=$it")
+                        /**
+                         * ПРИМЕР НАВИГАЦИИ МЕЖДУ ЭКРАНАМИ ОДНОГО МОДУЛЯ
+                         * С ПЕРЕДАЧЕЙ АРГУМЕНТОВ
+                         */
+                        navController.navigate(
+                            Detail.Route()
+                                .addValue(NEWS_ID, it)
+                                .destination()
+                        )
                     }
                 )
             }
             composable(
-                route = FeedScreens.DETAIL.route,
-                arguments = FeedScreens.DETAIL.arguments
+                route = Detail.entryPoint(),
+                arguments = Detail.arguments
             ) {
                 DetailScreen(requireNotNull(it.arguments?.getString(NEWS_ID)))
             }
         }
     }
 
-    internal enum class FeedScreens(
-        override val route: String,
-        override val arguments: List<NamedNavArgument> = listOf(),
-        override val deepLinks: List<NavDeepLink> = listOf()
-    ) : Screen {
-        FEED(route = "feed"),
-        DETAIL(
-            route = "detail?$NEWS_ID={$NEWS_ID}",
-            arguments = listOf(
-                navArgument(NEWS_ID) {
-                    type = NavType.StringType
-                    nullable = true
-                }
-            )
-        )
-    }
-
-    private companion object {
+    companion object {
         const val NEWS_ID = "NEWS_ID"
     }
 }
+
+object Feed : EntryPoint("feed")
+
+object Detail : EntryPoint(
+    entryPoint = "detail",
+    arguments = listOf(
+        navArgument(FeedEntryImpl.NEWS_ID) {
+            type = NavType.StringType
+            nullable = true
+        }
+    )
+)

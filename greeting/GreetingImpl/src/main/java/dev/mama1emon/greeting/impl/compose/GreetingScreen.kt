@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import dev.mama1emon.feed.navigation.FeedEntry
+import dev.mama1emon.greeting.impl.navigation.GreetingScreens.Greeting
 import dev.mama1emon.navigation.LocalDestinationsProvider
 import dev.mama1emon.navigation.find
 
@@ -30,7 +31,7 @@ fun GreetingScreen(navController: NavHostController) {
     ) {
         Text(
             modifier = Modifier.align(Alignment.Center),
-            text = "Добро пожаловать",
+            text = "ДОБРО ПОЖАЛОВАТЬ",
             textAlign = TextAlign.Center,
             color = Color.Black
         )
@@ -44,12 +45,19 @@ fun GreetingScreen(navController: NavHostController) {
                 .padding(bottom = 16.dp)
                 .align(Alignment.BottomCenter),
             onClick = {
+                /**
+                 * ПРИМЕР НАВИГАЦИИ МЕЖДУ ЭКРАНАМИ РАЗНЫХ МОДУЛЕЙ
+                 * С УКАЗАНИЕМ ДОПОЛНИТЕЛЬНЫХ ПАРАМЕТРОВ
+                 * И ПЕРЕДАЧЕЙ АРГУМЕНТОВ
+                 */
                 navController.navigate(
                     destinations.find<FeedEntry>().route(inputName)
-                )
+                ) {
+                    popUpTo(Greeting.entryPoint()) { inclusive = true }
+                }
             }
         ) {
-            Text(text = "Перейти на Ленту")
+            Text(text = "ОТКРЫТЬ ЛЕНТУ")
         }
     }
 }

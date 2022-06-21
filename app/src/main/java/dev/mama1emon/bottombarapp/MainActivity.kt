@@ -29,9 +29,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BottomBarAppTheme(darkTheme = false) {
-                CompositionLocalProvider(
-                    LocalDestinationsProvider provides destinations
-                ) {
+                CompositionLocalProvider(LocalDestinationsProvider provides destinations) {
                     Navigation()
                 }
             }

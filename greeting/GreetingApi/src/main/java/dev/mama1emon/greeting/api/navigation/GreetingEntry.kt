@@ -1,10 +1,7 @@
 package dev.mama1emon.greeting.api.navigation
 
-import dev.mama1emon.navigation.FeatureEntry
+import dev.mama1emon.navigation.SimpleFeatureEntry
 
-abstract class GreetingEntry : FeatureEntry() {
-
-    override val entryPoint = "@greeting"
-
-    fun route() = entryPoint
-}
+abstract class GreetingEntry(
+    final override val entryPoint: String = "@greeting"
+) : SimpleFeatureEntry()
