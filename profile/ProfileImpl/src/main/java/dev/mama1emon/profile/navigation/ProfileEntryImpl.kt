@@ -21,7 +21,7 @@ class ProfileEntryImpl @Inject constructor() : ProfileEntry() {
         ) {
             composable(Profile.value()) { ProfileScreen(navController) }
 
-            composable(Subscription.value()) { SubscriptionScreen(navController) }
+            composable(Subscription.value()) { SubscriptionScreen() }
         }
     }
 }

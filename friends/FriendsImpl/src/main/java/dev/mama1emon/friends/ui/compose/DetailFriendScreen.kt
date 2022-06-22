@@ -10,6 +10,6 @@ import androidx.compose.ui.Modifier
 @Composable
 fun DetailFriendScreen() {
     Box(modifier = Modifier.fillMaxSize()) {
-        Text(text = "Detail", modifier = Modifier.align(Alignment.Center))
+        Text(text = "ПРОФИЛЬ ДРУГА", modifier = Modifier.align(Alignment.Center))
     }
 }

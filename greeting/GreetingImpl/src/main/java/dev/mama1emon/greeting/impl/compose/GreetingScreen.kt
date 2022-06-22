@@ -43,7 +43,7 @@ fun GreetingScreen(navController: NavHostController, destinations: Destinations)
                  * С УКАЗАНИЕМ ДОПОЛНИТЕЛЬНЫХ ПАРАМЕТРОВ
                  */
                 navController.navigate(
-                    destinations.find<FeedEntry>().entryPoint.value()
+                    destinations.find<FeedEntry>().route
                 ) {
                     popUpTo(Greeting.value()) { inclusive = true }
                 }

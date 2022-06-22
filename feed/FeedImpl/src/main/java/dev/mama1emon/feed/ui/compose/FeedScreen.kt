@@ -18,12 +18,8 @@ import dev.mama1emon.feed.navigation.NEWS_ID_KEY
 
 @Composable
 fun FeedScreen(navController: NavHostController) {
-//    Scaffold(
-//        bottomBar = { BottomNavigationBar(navController) }
-//    ) {
     Box(
         Modifier
-//                .padding(it)
             .background(Color.Green)
             .fillMaxSize()
     ) {
@@ -52,5 +48,4 @@ fun FeedScreen(navController: NavHostController) {
             Text(text = "ОТКРЫТЬ НОВОСТЬ")
         }
     }
-//    }
 }

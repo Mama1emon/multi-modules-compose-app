@@ -4,5 +4,6 @@ import dev.mama1emon.navigation.EntryPoint
 import dev.mama1emon.navigation.FeatureEntry
 
 abstract class GreetingEntry(
-    final override val entryPoint: EntryPoint = EntryPoint("@greeting")
+    final override val entryPoint: EntryPoint = EntryPoint("@greeting"),
+    val route: String = entryPoint.value()
 ) : FeatureEntry()

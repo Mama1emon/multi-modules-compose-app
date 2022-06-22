@@ -20,12 +20,12 @@ internal class BottomBarConfiguration(private val destinations: Destinations) {
     val firstTab = tabs.first()
 
     inner class Feed : Tab(
-        route = destinations.find<FeedEntry>().entryPoint.value(),
+        route = destinations.find<FeedEntry>().route,
         title = R.string.feed
     )
 
     inner class Profile : Tab(
-        route = destinations.find<ProfileEntry>().entryPoint.value(),
+        route = destinations.find<ProfileEntry>().route,
         title = R.string.profile
     )
 }

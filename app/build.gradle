@@ -59,4 +59,6 @@ dependencies {
     implementation project(":feed-impl")
     implementation project(":profile-api")
     implementation project(":profile-impl")
+    implementation project(":friends-api")
+    implementation project(":friends-impl")
 }

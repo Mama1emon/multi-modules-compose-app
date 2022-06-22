@@ -7,7 +7,7 @@ import dev.mama1emon.navigation.EntryPoint
 object Feed : EntryPoint("feed")
 
 object Detail : EntryPoint(
-    entryPoint = "detail",
+    name = "detail",
     arguments = listOf(
         navArgument(NEWS_ID_KEY) {
             type = NavType.StringType

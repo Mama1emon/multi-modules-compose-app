@@ -36,7 +36,8 @@ internal fun Navigation() {
         /** НАВИГАЦИОННЫЙ ГРАФ ПРИЛОЖЕНИЯ */
         NavHost(
             navController = navController,
-            startDestination = destinations.find<GreetingEntry>().entryPoint.value()
+            /** ПРИМЕР НАВИГАЦИИ МЕЖДУ ЭКРАНАМИ РАЗНЫХ МОДУЛЕЙ */
+            startDestination = destinations.find<GreetingEntry>().route
         ) {
 
             /**
@@ -51,7 +52,7 @@ internal fun Navigation() {
 
     /** ИСКЛЮЧЕННЫЕ ТОЧКИ ВХОДА, ДЛЯ КОТОРЫХ НЕ ОТОБРАЖАЕТСЯ НАВИГАЦИОННАЯ ПАНЕЛЬ */
     val excludedDestinations = listOf(
-        destinations.find<GreetingEntry>().entryPoint.value()
+        destinations.find<GreetingEntry>().route
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination

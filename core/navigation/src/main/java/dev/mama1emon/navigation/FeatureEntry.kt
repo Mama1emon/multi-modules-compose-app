@@ -1,16 +1,13 @@
 package dev.mama1emon.navigation
 
-import androidx.navigation.NavDeepLink
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 
 /** Навигация фичи */
 abstract class FeatureEntry {
 
-    abstract val entryPoint: EntryPoint
-
-    /** Диплинки */
-    protected val deepLinks: List<NavDeepLink> = listOf()
+    /** Точка входа в фичу */
+    protected abstract val entryPoint: EntryPoint
 
     /**
      * Метод, поставляющий сабграф

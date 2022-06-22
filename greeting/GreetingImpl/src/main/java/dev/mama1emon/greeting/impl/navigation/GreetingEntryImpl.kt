@@ -16,10 +16,12 @@ class GreetingEntryImpl @Inject constructor() : GreetingEntry() {
         destinations: Destinations
     ) {
         navigation(
-            startDestination = Greeting.value(),
-            route = entryPoint.value()
+            route = entryPoint.value(),
+            startDestination = Greeting.value()
         ) {
-            composable(route = Greeting.value()) { GreetingScreen(navController, destinations) }
+            composable(route = Greeting.value()) {
+                GreetingScreen(navController, destinations)
+            }
         }
     }
 }

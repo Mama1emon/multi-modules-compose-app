@@ -9,16 +9,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import androidx.navigation.NavHostController
 
 @Composable
-fun SubscriptionScreen(navController: NavHostController) {
-//    Scaffold(
-//        bottomBar = { BottomNavigationBar(navController) }
-//    ) {
+fun SubscriptionScreen() {
     Box(
         Modifier
-//                .padding(it)
             .background(Color.Magenta)
             .fillMaxSize()
     ) {
@@ -29,5 +24,4 @@ fun SubscriptionScreen(navController: NavHostController) {
             color = Color.Black
         )
     }
-//    }
 }
