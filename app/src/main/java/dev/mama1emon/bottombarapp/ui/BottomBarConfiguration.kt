@@ -1,20 +1,25 @@
-package dev.mama1emon.ds.ui
+package dev.mama1emon.bottombarapp.ui
 
 import androidx.annotation.StringRes
-import dev.mama1emon.ds.R
+import dev.mama1emon.bottombarapp.R
 import dev.mama1emon.feed.navigation.FeedEntry
 import dev.mama1emon.navigation.Destinations
 import dev.mama1emon.navigation.find
 import dev.mama1emon.profile.navigation.ProfileEntry
 
-internal class BottomBarTabs(private val destinations: Destinations) {
+/** Конфигурация нижней навигационной панели */
+internal class BottomBarConfiguration(private val destinations: Destinations) {
 
+    /** ВСЕ ВКЛАДКИ НИЖНЕЙ НАВИГАЦИОННОЙ ПАНЕЛИ */
     val tabs = listOf(
         Feed(),
         Profile()
     )
 
-    inner class Feed() : Tab(
+    /** ПЕРВАЯ ВИДИМАЯ ВКЛАДКА */
+    val firstTab = tabs.first()
+
+    inner class Feed : Tab(
         route = destinations.find<FeedEntry>().entryPoint.value(),
         title = R.string.feed
     )

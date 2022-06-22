@@ -37,7 +37,6 @@ dependencies {
     implementation "androidx.compose.material:material:$compose_version"
 
     implementation project(":core:navigation")
-    implementation project(":core:ds")
 
     implementation project(":greeting-api")
     implementation project(":feed-api")

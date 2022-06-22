@@ -24,8 +24,6 @@ def featureModules = [
         ":friends-impl" : "friends/FriendsImpl",
         ":profile-api"  : "profile/ProfileApi",
         ":profile-impl" : "profile/ProfileImpl",
-        ":hub-api"      : "hub/HubApi",
-        ":hub-impl"     : "hub/HubImpl",
         ":greeting-api" : "greeting/GreetingApi",
         ":greeting-impl": "greeting/GreetingImpl"
 ]
@@ -34,4 +32,3 @@ featureModules.forEach { name, path ->
     include(name)
     project(name).projectDir = file(path)
 }
-include ':core:ds'

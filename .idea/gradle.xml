@@ -13,7 +13,6 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/core/ds" />
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/feed/FeedApi" />
             <option value="$PROJECT_DIR$/feed/FeedImpl" />
@@ -21,8 +20,6 @@
             <option value="$PROJECT_DIR$/friends/FriendsImpl" />
             <option value="$PROJECT_DIR$/greeting/GreetingApi" />
             <option value="$PROJECT_DIR$/greeting/GreetingImpl" />
-            <option value="$PROJECT_DIR$/hub/HubApi" />
-            <option value="$PROJECT_DIR$/hub/HubImpl" />
             <option value="$PROJECT_DIR$/profile/ProfileApi" />
             <option value="$PROJECT_DIR$/profile/ProfileImpl" />
           </set>

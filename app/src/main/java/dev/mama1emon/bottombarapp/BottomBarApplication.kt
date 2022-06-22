@@ -3,5 +3,6 @@ package dev.mama1emon.bottombarapp
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
+/** Главный класс приложения */
 @HiltAndroidApp
-class BottomBarApplication : Application()
+internal class BottomBarApplication : Application()
